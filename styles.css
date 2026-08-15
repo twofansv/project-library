@@ -52,3 +52,27 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/* My styling below */
+
+
+h1, footer {
+    justify-items: center;
+    justify-self: center;
+}
+
+.cards-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.cards {
+    
+    background-color: silver;
+    border-radius: 10px;
+    height: 150px;
+    width: 200px;
+
+}
