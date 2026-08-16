@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Library</title>
-    <script src="script.js"></script>
+    <script src="/script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
         <h1>Your Library</h1>
+        <button class="button open-button">open modal</button>
+
+        <dialog class="modal" id="modal">
+            <h2>Testing</h2>
+            <p>blahblahblah</p>
+            <button class="button close-button">close modal</button>
+        </dialog>
+        
     </header>
 
     <main>
