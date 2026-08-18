@@ -6,6 +6,10 @@ openModal.addEventListener('click', () => {
     modal.showModal();
 });
 
+closeModal.addEventListener('click', () => {
+    modal.close();
+});
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -22,9 +26,13 @@ function Book(title, author, pages, read) {
 
 
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
 
 
+
+
+    let newBook = new Book();
+    modal.close();
 }
 
