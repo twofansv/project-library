@@ -40,9 +40,9 @@ function addBookToLibrary(title, author, pages, read) {
     
 
     title = document.querySelector('.inp-title').value;
-    author = document.querySelector('.inp-title').value;
-    pages = document.querySelector('.inp-title').value;
-    read = document.querySelector('.inp-title').value;
+    author = document.querySelector('.inp-author').value;
+    pages = document.querySelector('.inp-pages').value;
+    read = document.querySelector('.inp-read').checked;
 
     let newBook = new Book (title, author, pages, read);
     myLibrary.push(newBook);
