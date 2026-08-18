@@ -1,6 +1,7 @@
 const modal = document.querySelector('#modal');
 const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
+const addBook = document.querySelector('.add-book');
 
 openModal.addEventListener('click', () => {
     modal.showModal();
@@ -8,6 +9,14 @@ openModal.addEventListener('click', () => {
 
 closeModal.addEventListener('click', () => {
     modal.close();
+});
+
+
+addBook.addEventListener('click', () => {
+
+    addBookToLibrary();
+    modal.close();
+
 });
 
 const myLibrary = [];
@@ -24,20 +33,19 @@ function Book(title, author, pages, read) {
     this.read = read;  
 }
 
-let inputTitle = document.querySelector('#inp-title').value;
 
 
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
     
-    title = inputTitle;
-    author = inputTitle;
-    pages = inputTitle;
-    read = inputTitle;
+
+    title = document.querySelector('.inp-title').value;
+    author = document.querySelector('.inp-title').value;
+    pages = document.querySelector('.inp-title').value;
+    read = document.querySelector('.inp-title').value;
 
     let newBook = new Book (title, author, pages, read);
     myLibrary.push(newBook);
-    
-    modal.close();
+
 }
 
