@@ -24,15 +24,20 @@ function Book(title, author, pages, read) {
     this.read = read;  
 }
 
+let inputTitle = document.querySelector('#inp-title').value;
 
 
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
+    
+    title = inputTitle;
+    author = inputTitle;
+    pages = inputTitle;
+    read = inputTitle;
 
-
-
-
-    let newBook = new Book();
+    let newBook = new Book (title, author, pages, read);
+    myLibrary.push(newBook);
+    
     modal.close();
 }
 
