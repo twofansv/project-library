@@ -3,6 +3,7 @@ const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
 const addBook = document.querySelector('.add-book');
 
+
 openModal.addEventListener('click', () => {
     modal.showModal();
 });
@@ -11,15 +12,56 @@ closeModal.addEventListener('click', () => {
     modal.close();
 });
 
+//REFERENCE DOM
+const cardsBox = document.querySelector('.cards-box');
 
-addBook.addEventListener('click', () => {
+//DOM CREATION
+const cardDiv = document.createElement('div');
+const cardTitle = document.createElement('h2');
+const cardAuthor = document.createElement('p');
+const cardPages = document.createElement('p');
+const cardRead = document.createElement('button');
 
-    addBookToLibrary();
-    modal.close();
+
+cardDiv.className = 'cards';
+cardRead.id = 'card-read';
+
+cardsBox.appendChild(cardDiv);
+
+cardTitle.textContent = 'Ehh';
+cardAuthor.textContent = 'Ehh';
+cardPages.textContent = 'Ehh';
+cardRead.textContent = 'Ehh';
+
+
+cardDiv.appendChild(cardTitle);
+cardDiv.appendChild(cardAuthor);
+cardDiv.appendChild(cardPages);
+cardDiv.appendChild(cardRead);
+
+addBook.addEventListener('click', () => { 
+
+
 
 });
 
+    
+
 const myLibrary = [];
+
+
+
+function createElement (){
+    
+
+}
+
+
+
+
+
+
+
 
 function Book(title, author, pages, read) {
     
@@ -46,6 +88,9 @@ function addBookToLibrary(title, author, pages, read) {
 
     let newBook = new Book (title, author, pages, read);
     myLibrary.push(newBook);
+
+    
+   
 
 }
 
