@@ -16,32 +16,45 @@ closeModal.addEventListener('click', () => {
 const cardsBox = document.querySelector('.cards-box');
 
 //DOM CREATION
-const cardDiv = document.createElement('div');
-const cardTitle = document.createElement('h2');
-const cardAuthor = document.createElement('p');
-const cardPages = document.createElement('p');
-const cardRead = document.createElement('button');
 
 
-cardDiv.className = 'cards';
-cardRead.id = 'card-read';
-
-cardsBox.appendChild(cardDiv);
-
-cardTitle.textContent = 'Ehh';
-cardAuthor.textContent = 'Ehh';
-cardPages.textContent = 'Ehh';
-cardRead.textContent = 'Ehh';
 
 
-cardDiv.appendChild(cardTitle);
-cardDiv.appendChild(cardAuthor);
-cardDiv.appendChild(cardPages);
-cardDiv.appendChild(cardRead);
+
+
+
+
 
 addBook.addEventListener('click', () => { 
 
+    addBookToLibrary();
 
+  
+    const cardDiv = document.createElement('div');
+    const cardTitle = document.createElement('h2');
+    const cardAuthor = document.createElement('p');
+    const cardPages = document.createElement('p');
+    const cardRead = document.createElement('button');
+
+    cardDiv.className = 'cards';
+    cardRead.id = 'card-read';
+    
+    
+    myLibrary.forEach (function (obj) {
+        
+        cardTitle.textContent = obj.title;
+        cardAuthor.textContent = obj.author;
+        cardPages.textContent = obj.pages;
+        cardRead.textContent = obj.read;
+
+        cardsBox.appendChild(cardDiv);
+        cardDiv.appendChild(cardTitle);
+        cardDiv.appendChild(cardAuthor);
+        cardDiv.appendChild(cardPages);
+        cardDiv.appendChild(cardRead);
+
+        modal.close();
+    });
 
 });
 
@@ -51,10 +64,7 @@ const myLibrary = [];
 
 
 
-function createElement (){
-    
 
-}
 
 
 
