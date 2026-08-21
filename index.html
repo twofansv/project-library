@@ -26,7 +26,7 @@
                 <input type="number" name="pages" class="inp-pages">
             </label>
 
-            <label for="read"> Already Read?
+            <label for="read" id="label-read"> Already Read?
                 <input type="checkbox" name="read" class="inp-read">
             </label>
             
@@ -43,7 +43,10 @@
                 <h2 id="card-title">Book Title</h2>
                 <p id="card-author">Author</p>
                 <p id="card-pages">256 pages</p>
-                <button id="card-read">Read</button>
+                
+                <label for="card-read" data-read=""> Already read?
+                    <input type="checkbox" name="card-read" id="card-read" >
+                </label>
             </div>
 
             

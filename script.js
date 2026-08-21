@@ -19,43 +19,11 @@ const cardsBox = document.querySelector('.cards-box');
 
 
 
-
-
-
-
-
-
 addBook.addEventListener('click', () => { 
 
     addBookToLibrary();
-
-  
-    const cardDiv = document.createElement('div');
-    const cardTitle = document.createElement('h2');
-    const cardAuthor = document.createElement('p');
-    const cardPages = document.createElement('p');
-    const cardRead = document.createElement('button');
-
-    cardDiv.className = 'cards';
-    cardRead.id = 'card-read';
-    
-    
-    myLibrary.forEach (function (obj) {
-        
-        cardTitle.textContent = obj.title;
-        cardAuthor.textContent = obj.author;
-        cardPages.textContent = obj.pages;
-        cardRead.textContent = obj.read;
-
-        cardsBox.appendChild(cardDiv);
-        cardDiv.appendChild(cardTitle);
-        cardDiv.appendChild(cardAuthor);
-        cardDiv.appendChild(cardPages);
-        cardDiv.appendChild(cardRead);
-
-        modal.close();
-    });
-
+    displayBooks();
+    modal.close();
 });
 
     
@@ -64,12 +32,34 @@ const myLibrary = [];
 
 
 
+function displayBooks () {
+    const cardDiv = document.createElement('div');
+    const cardTitle = document.createElement('h2');
+    const cardAuthor = document.createElement('p');
+    const cardPages = document.createElement('p');
+    const cardRead = document.createElement('button');
 
+    cardDiv.className = 'cards';
+    cardRead.id = 'card-read';
 
+    
+    myLibrary.forEach (function (obj) {
+        
+        cardTitle.textContent = obj.title;
+        cardAuthor.textContent = obj.author;
+        cardPages.textContent = obj.pages;
 
+        
 
+        cardsBox.appendChild(cardDiv);
+        cardDiv.appendChild(cardTitle);
+        cardDiv.appendChild(cardAuthor);
+        cardDiv.appendChild(cardPages);
+        cardDiv.appendChild(cardRead);
 
-
+        
+    });
+}
 
 
 
@@ -85,6 +75,12 @@ function Book(title, author, pages, read) {
     this.read = read;  
 }
 
+Book.prototype.setRead = function() {
+    let inputRead = document.querySelector('.inp-read');
+    let value = inputRead.getAttribute('data-read');
+
+
+}
 
 
 function addBookToLibrary(title, author, pages, read) {
