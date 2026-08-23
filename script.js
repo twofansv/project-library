@@ -32,16 +32,23 @@ const myLibrary = [];
 
 
 
+
 function displayBooks () {
+
     const cardDiv = document.createElement('div');
     const cardTitle = document.createElement('h2');
     const cardAuthor = document.createElement('p');
     const cardPages = document.createElement('p');
-    const cardRead = document.createElement('button');
+    const cardLabel = document.createElement('label');
+    const cardRead = document.createElement('input');
+   
 
     cardDiv.className = 'cards';
-    cardRead.id = 'card-read';
+    cardLabel.id = 'label-read';
+    
 
+    cardRead.type = 'checkbox';
+    cardRead.id = 'card-read';
     
     myLibrary.forEach (function (obj) {
         
@@ -55,10 +62,38 @@ function displayBooks () {
         cardDiv.appendChild(cardTitle);
         cardDiv.appendChild(cardAuthor);
         cardDiv.appendChild(cardPages);
+        cardDiv.appendChild(cardLabel);
         cardDiv.appendChild(cardRead);
 
         
     });
+}
+
+cardRead.addEventListener('click', function() {
+    setRead();
+    myLibrary
+});
+
+Book.prototype.setRead = function() {
+
+    // IDK IF TAMA BA NA SA LOOB TONG setAttribute DITO SA PROTOTYPE  
+    if (this.read == 'true') {
+        cardRead.setAttribute('data-read', 'read');
+
+    }
+    else {
+        cardRead.setAttribute('data-read', 'unread');
+    }
+
+    //SETS THE OBJECT READ VALUE
+    if (data-read == 'true') {
+        this.read = true;
+    }
+    else {
+        this.read = false;
+    }
+
+
 }
 
 
@@ -75,12 +110,7 @@ function Book(title, author, pages, read) {
     this.read = read;  
 }
 
-Book.prototype.setRead = function() {
-    let inputRead = document.querySelector('.inp-read');
-    let value = inputRead.getAttribute('data-read');
 
-
-}
 
 
 function addBookToLibrary(title, author, pages, read) {
@@ -93,6 +123,7 @@ function addBookToLibrary(title, author, pages, read) {
     read = document.querySelector('.inp-read').checked;
 
     let newBook = new Book (title, author, pages, read);
+
     myLibrary.push(newBook);
 
     
