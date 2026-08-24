@@ -124,6 +124,8 @@ function addBookToLibrary(title, author, pages, read) {
 
     let newBook = new Book (title, author, pages, read);
 
+    newBook.id = crypto.randomUUID();
+
     myLibrary.push(newBook);
 
     
