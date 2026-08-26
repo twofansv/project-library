@@ -12,90 +12,62 @@ closeModal.addEventListener('click', () => {
     modal.close();
 });
 
-//REFERENCE DOM
-const cardsBox = document.querySelector('.cards-box');
-
-//DOM CREATION
 
 
 
 addBook.addEventListener('click', () => { 
 
-    addBookToLibrary();
-    displayBooks();
-    modal.close();
 });
 
     
 
 const myLibrary = [];
 
+myLibrary.push({
+    title: 'Nujabes Jazzy Life',
+    author: 'Kero Uno',
+    pages: '242',
+    read: true
+},
+{
+    title: 'Nujabes Jazzy Life',
+    author: 'Kero Uno',
+    pages: '242',
+    read: true
 
+});
 
+//Container of rendered cards
+const cardsBox = document.querySelector('.cards-box');
+//------
 
 function displayBooks () {
 
-    const cardDiv = document.createElement('div');
-    const cardTitle = document.createElement('h2');
-    const cardAuthor = document.createElement('p');
-    const cardPages = document.createElement('p');
-    const cardLabel = document.createElement('label');
-    const cardRead = document.createElement('input');
-   
+    myLibrary.forEach((obj) => {
 
-    cardDiv.className = 'cards';
-    cardLabel.id = 'label-read';
-    
-
-    cardRead.type = 'checkbox';
-    cardRead.id = 'card-read';
-    
-    myLibrary.forEach (function (obj) {
+        //Render BG of each obj
+        const cardsBackground = document.createElement('div');
+        cardsBackground.className = 'cardsBackground';
+        //------
         
-        cardTitle.textContent = obj.title;
-        cardAuthor.textContent = obj.author;
-        cardPages.textContent = obj.pages;
+        //Render title of each obj
+        const title = document.createElement('h1');
+        title.textContent = obj.title;
+        //------
 
-        
-
-        cardsBox.appendChild(cardDiv);
-        cardDiv.appendChild(cardTitle);
-        cardDiv.appendChild(cardAuthor);
-        cardDiv.appendChild(cardPages);
-        cardDiv.appendChild(cardLabel);
-        cardDiv.appendChild(cardRead);
+        //Hierarchy
+        cardsBox.appendChild(cardsBackground);
+            cardsBackground.appendChild(title);
+        //------
 
         
     });
+    
+    
 }
 
-cardRead.addEventListener('click', function() {
-    setRead();
-    myLibrary
-});
 
-Book.prototype.setRead = function() {
-
-    // IDK IF TAMA BA NA SA LOOB TONG setAttribute DITO SA PROTOTYPE  
-    if (this.read == 'true') {
-        cardRead.setAttribute('data-read', 'read');
-
-    }
-    else {
-        cardRead.setAttribute('data-read', 'unread');
-    }
-
-    //SETS THE OBJECT READ VALUE
-    if (data-read == 'true') {
-        this.read = true;
-    }
-    else {
-        this.read = false;
-    }
-
-
-}
-
+displayBooks();
 
 
 function Book(title, author, pages, read) {
