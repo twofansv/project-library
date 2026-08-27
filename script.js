@@ -1,7 +1,7 @@
 const modal = document.querySelector('#modal');
 const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
-const addBook = document.querySelector('.add-book');
+const addBookButton = document.querySelector('.add-book');
 
 
 openModal.addEventListener('click', () => {
@@ -15,34 +15,34 @@ closeModal.addEventListener('click', () => {
 
 
 
-addBook.addEventListener('click', () => { 
-
-});
 
     
 
 const myLibrary = [];
 
-myLibrary.push({
-    title: 'Nujabes Jazzy Life',
-    author: 'Kero Uno',
-    pages: '242',
-    read: true
-},
-{
-    title: 'Nujabes Jazzy Life',
-    author: 'Kero Uno',
-    pages: '242',
-    read: true
+// myLibrary.push({
+//     title: 'Nujabes Jazzy Life',
+//     author: 'Kero Uno',
+//     pages: '242',
+//     read: true
+// },
+// {
+//     title: 'Nujabes Jazzy Life',
+//     author: 'Kero Uno',
+//     pages: '242',
+//     read: true
 
-});
+// });
 
 //Container of rendered cards
 const cardsBox = document.querySelector('.cards-box');
 //------
 
-function displayBooks () {
+function renderBooks () {
 
+
+    cardsBox.replaceChildren();
+    
     myLibrary.forEach((obj) => {
 
         //Render BG of each obj
@@ -63,11 +63,10 @@ function displayBooks () {
         
     });
     
-    
-}
+};
 
 
-displayBooks();
+
 
 
 function Book(title, author, pages, read) {
@@ -100,8 +99,11 @@ function addBookToLibrary(title, author, pages, read) {
 
     myLibrary.push(newBook);
 
-    
-   
-
 }
+
+addBookButton.addEventListener('click', ()=> {
+    addBookToLibrary();
+    renderBooks();
+    modal.close();
+});
 
