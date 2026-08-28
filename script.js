@@ -40,7 +40,7 @@ const cardsBox = document.querySelector('.cards-box');
 
 function renderBooks () {
 
-
+    //Clear the container of rendered cards
     cardsBox.replaceChildren();
     
     myLibrary.forEach((obj) => {
@@ -48,6 +48,8 @@ function renderBooks () {
         //Render BG of each obj
         const cardsBackground = document.createElement('div');
         cardsBackground.className = 'cardsBackground';
+        
+        cardsBackground.setAttribute('data-attribute', `${obj.id}`); //Create attribute and object id as its value. Needed for deletion of card
         //------
         
         //Render title of each obj
@@ -55,13 +57,31 @@ function renderBooks () {
         title.textContent = obj.title;
         //------
 
+        //Render delete button of each obj
+        const deleteCard = document.createElement('button');
+        deleteCard.textContent = 'Delete';
+        //------
+
+        //Logic for deleting a card upon clicking the delete button
+        const attribute = cardsBackground.getAttribute('data-attribute');
+
+        deleteCard.addEventListener('click', function() {
+            if (attribute === obj.id) {
+                cardsBox.removeChild(cardsBackground);
+            };
+        });
+
         //Hierarchy
         cardsBox.appendChild(cardsBackground);
             cardsBackground.appendChild(title);
+            cardsBackground.appendChild(deleteCard);
+
         //------
 
         
     });
+
+    
     
 };
 
