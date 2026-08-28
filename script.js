@@ -46,10 +46,10 @@ function renderBooks () {
     myLibrary.forEach((obj) => {
 
         //Render BG of each obj
-        const cardsBackground = document.createElement('div');
-        cardsBackground.className = 'cardsBackground';
+        const cardsContainer = document.createElement('div');
+        cardsContainer.className = 'cardsBackground';
         
-        cardsBackground.setAttribute('data-attribute', `${obj.id}`); //Create attribute and object id as its value. Needed for deletion of card
+        cardsContainer.setAttribute('data-attribute', `${obj.id}`); //Create attribute and object id as its value. Needed for deletion of card
         //------
         
         //Render title of each obj
@@ -63,18 +63,18 @@ function renderBooks () {
         //------
 
         //Logic for deleting a card upon clicking the delete button
-        const attribute = cardsBackground.getAttribute('data-attribute');
+        const attribute = cardsContainer.getAttribute('data-attribute');
 
         deleteCard.addEventListener('click', function() {
             if (attribute === obj.id) {
-                cardsBox.removeChild(cardsBackground);
+                cardsBox.removeChild(cardsContainer);
             };
         });
 
         //Hierarchy
-        cardsBox.appendChild(cardsBackground);
-            cardsBackground.appendChild(title);
-            cardsBackground.appendChild(deleteCard);
+        cardsBox.appendChild(cardsContainer);
+            cardsContainer.appendChild(title);
+            cardsContainer.appendChild(deleteCard);
 
         //------
 
