@@ -66,9 +66,15 @@ function renderBooks () {
         const attribute = cardsContainer.getAttribute('data-attribute');
 
         deleteCard.addEventListener('click', function() {
+            const index = myLibrary.indexOf(obj);
+
             if (attribute === obj.id) {
                 cardsBox.removeChild(cardsContainer);
+                myLibrary.splice(index, 1);
             };
+
+            
+
         });
 
         //Hierarchy
