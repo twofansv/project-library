@@ -57,6 +57,26 @@ function renderBooks () {
         title.textContent = obj.title;
         //------
 
+
+        //Render read toggle checkbox
+        const read = document.createElement('input');
+        read.type = 'checkbox';
+
+        if (obj.read === 'true') {
+            read.checked = 'true';
+        } else {
+           
+        }
+        
+        
+    
+        read.addEventListener('click', function() {
+            obj.toggleReadStatus();
+
+        });
+
+        
+
         //Render delete button of each obj
         const deleteCard = document.createElement('button');
         deleteCard.textContent = 'Delete';
@@ -72,27 +92,29 @@ function renderBooks () {
                 cardsBox.removeChild(cardsContainer);
                 myLibrary.splice(index, 1);
             };
-
-            
-
         });
+        //------
 
         //Hierarchy
         cardsBox.appendChild(cardsContainer);
             cardsContainer.appendChild(title);
+            cardsContainer.appendChild(read);
             cardsContainer.appendChild(deleteCard);
-
+            
         //------
-
         
-    });
+        
+        });
 
     
     
 };
 
 
-
+Book.prototype.toggleReadStatus = function(){
+    this.read = !this.read;
+    
+};
 
 
 function Book(title, author, pages, read) {
@@ -110,6 +132,8 @@ function Book(title, author, pages, read) {
 
 
 
+
+
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
     
@@ -120,7 +144,7 @@ function addBookToLibrary(title, author, pages, read) {
     read = document.querySelector('.inp-read').checked;
 
     let newBook = new Book (title, author, pages, read);
-
+    // newBook.setRead(); 
     newBook.id = crypto.randomUUID();
 
     myLibrary.push(newBook);
