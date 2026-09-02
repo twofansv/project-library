@@ -44,6 +44,8 @@ function renderBooks () {
     cardsBox.replaceChildren();
     
     myLibrary.forEach((obj) => {
+       
+        
 
         //Render BG of each obj
         const cardsContainer = document.createElement('div');
@@ -62,12 +64,11 @@ function renderBooks () {
         const read = document.createElement('input');
         read.type = 'checkbox';
 
-        if (obj.read === 'true') {
-            read.checked = 'true';
+        if (obj.read === true) {
+            read.checked = true;
         } else {
-           
+           read.checked = false;
         }
-        
         
     
         read.addEventListener('click', function() {
