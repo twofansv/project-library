@@ -2,14 +2,19 @@ const modal = document.querySelector('#modal');
 const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
 const addBookButton = document.querySelector('.add-book');
+const form = document.querySelector('form')
+
 
 
 openModal.addEventListener('click', () => {
     modal.showModal();
+ 
 });
 
 closeModal.addEventListener('click', () => {
+
     modal.close();
+    
 });
 
 
@@ -152,7 +157,11 @@ function addBookToLibrary(title, author, pages, read) {
 
 }
 
-addBookButton.addEventListener('click', ()=> {
+
+
+form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
     addBookToLibrary();
     renderBooks();
     modal.close();
