@@ -1,6 +1,7 @@
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
   box-sizing: border-box;
+  border: 1px solid blue;
 }
 
 /* 2. Remove default margin */
@@ -63,7 +64,7 @@ h1, footer, .add-book {
 
 .cards-box {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     justify-items: center;
     align-items: center;
 }
