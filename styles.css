@@ -110,7 +110,7 @@ footer {
   background-color: silver;
 }
 
-.open-button {
+.open-button, .add-book {
   
   color: white;
   background-color: green;
@@ -125,8 +125,16 @@ button {
   margin-bottom: 10px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
 
-
+input{
+  /* align-self: flex-end;
+  justify-self: flex-end; */
+  margin-bottom: 10px;
+}
 
 
 
