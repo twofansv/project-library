@@ -83,12 +83,14 @@ footer {
 }
 
 .cardsBackground {
-      
+  display: flex;
+  flex-direction: column;
   background-color: silver;
   border-radius: 10px;
-  height: 150px;
+  height: minmax(160px, 200px);
   width: 200px;
   margin: 20px;
+  padding: 10px;
 }
 
 #your-library {
@@ -136,6 +138,9 @@ input{
   margin-bottom: 10px;
 }
 
+#authorID, #pagesID {
+  color: rgb(73, 73, 73);
+}
 
 
 

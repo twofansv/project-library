@@ -25,19 +25,7 @@ closeModal.addEventListener('click', () => {
 
 const myLibrary = [];
 
-// myLibrary.push({
-//     title: 'Nujabes Jazzy Life',
-//     author: 'Kero Uno',
-//     pages: '242',
-//     read: true
-// },
-// {
-//     title: 'Nujabes Jazzy Life',
-//     author: 'Kero Uno',
-//     pages: '242',
-//     read: true
 
-// });
 
 //Container of rendered cards
 const cardsBox = document.querySelector('.cards-box');
@@ -60,14 +48,36 @@ function renderBooks () {
         //------
         
         //Render title of each obj
-        const title = document.createElement('h1');
+        const title = document.createElement('h2');
         title.textContent = obj.title;
+        //------
+
+        //Render author of each obj
+        const author = document.createElement('p');
+        author.textContent = obj.author;
+        author.id = "authorID";
+        //------
+
+        //Render pages of each obj
+        const pages = document.createElement('p');
+        pages.textContent = obj.pages;
+        pages.textContent += ' pages';
+        pages.id = "pagesID";
         //------
 
 
         //Render read toggle checkbox
+
+        const label = document.createElement('label');
+        label.textContent = 'Already Read? '
+        label.setAttribute('for', 'cbox');
+      
         const read = document.createElement('input');
         read.type = 'checkbox';
+        read.id = 'cbox'
+
+      
+       
 
         if (obj.read === true) {
             read.checked = true;
@@ -104,7 +114,10 @@ function renderBooks () {
         //Hierarchy
         cardsBox.appendChild(cardsContainer);
             cardsContainer.appendChild(title);
-            cardsContainer.appendChild(read);
+            cardsContainer.appendChild(author);
+            cardsContainer.appendChild(pages);
+            cardsContainer.appendChild(label);
+            label.appendChild(read);
             cardsContainer.appendChild(deleteCard);
             
         //------
@@ -115,6 +128,21 @@ function renderBooks () {
     
     
 };
+
+myLibrary.push({
+    title: 'Nujabes Jazzy Life',
+    author: 'Kero Uno',
+    pages: '242',
+    read: true
+},
+{
+    title: 'Plik Plok',
+    author: 'Jahseh Bonfrog',
+    pages: '420',
+    read: true
+});
+
+renderBooks();
 
 
 Book.prototype.toggleReadStatus = function(){
