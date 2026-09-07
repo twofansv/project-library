@@ -57,10 +57,12 @@ h1, h2, h3, h4, h5, h6 {
 /* My styling below */
 
 
+
 h1, footer, .add-book {
     justify-items: center;
     justify-self: center;
 }
+
 
 .cards-box {
     display: grid;
@@ -77,3 +79,30 @@ h1, footer, .add-book {
     width: 200px;
 
 }
+
+#your-library {
+  justify-self: left;
+
+}
+
+.nav-container {
+  background-color: rgba(49, 93, 195, 0.793);
+}
+
+footer {
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  background-color: silver;
+}
+
+
+
+
+
+
+
+
+
+
+
